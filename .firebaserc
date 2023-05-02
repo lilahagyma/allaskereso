@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "allaskereso-5bd68": {
+      "hosting": {
+        "allaskereso": [
+          "allaskereso-5bd68"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "allaskereso-5bd68"
+  }
+}
