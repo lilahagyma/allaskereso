@@ -1,1 +1,34 @@
-<p>register-seeker works!</p>
+<div class="content">
+  <h1>Regisztráció munkaadóként</h1>
+  <div class="row">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="input-box" style="margin-right: 25px;">
+          <label>teljes név<span class="required"></span></label>
+          <input type="text" placeholder="Minta Márta" formControlName="name">
+        </div>
+        <div class="input-box">
+          <label>e-mail<span class="required"></span></label>
+          <input type="text" placeholder="minta@gmail.com" formControlName="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-box" style="margin-right: 25px;">
+          <label>jelszó<span class="required"></span></label>
+          <input type="password" formControlName="password">
+        </div>
+        <div class="input-box">
+          <label>jelszó megismétlése<span class="required"></span></label>
+          <input type="password" formControlName="passwordAgain">
+        </div>
+      </div>
+      <button type="submit">Regisztráció</button>
+    </form>
+  </div>
+  <div class="row-buttons">
+    <a routerLink="/login">Bejelentkezés</a>
+  </div>
+  <div class="employer">
+    <a routerLink="/seeker/register">Regisztrálás munkavállalóként</a>
+  </div>
+</div>

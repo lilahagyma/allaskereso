@@ -48,6 +48,7 @@ export class RegisterEmployerComponent {
     let result = await this.data.uploadEmployerData(user.user.uid, new Employer(values.name, values.email, values.taxId, values.address))
     if (result) {
       alert("Sikeres regisztráció!")
+      this.auth.authLevel = 2;
       this.router.navigate(["home"])
     }
   }

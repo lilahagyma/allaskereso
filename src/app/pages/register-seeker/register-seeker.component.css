@@ -7,53 +7,61 @@
   align-items: center;
 }
 
-h1 {
+.content h1 {
   margin-bottom: 25px;
   color: var(--second-color);
+  text-align: center;
 }
 
-.input-box {
+.content .input-box {
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-label {
+.content .input-box label {
   color: #888888;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.required {
+.content .input-box label .required {
   color: #ff0000;
 }
 
-.row {
+.content .row {
   display: flex;
 }
 
-form {
+.content form {
   border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-input {
+.content form input[type="text"],
+.content form input[type="password"],
+.content form input[type="number"] {
   padding: 8px 15px;
   margin: 8px 0;
   width: 100%;
-  display: inline-block;
   box-sizing: border-box;
   border: 1px solid #ccc;
+  border-radius: 4px;
   outline: none;
+}
+
+.content .row-buttons {
+  margin-top: 25px;
+}
+
+form {
+  justify-content: center;
 }
 
 button {
   padding: 10px 25px;
-  margin: auto;
+  width: 100%;
   margin-top: 10px;
   background-color: var(--second-color);
   color: #fff;
@@ -66,33 +74,43 @@ button {
   transition: 0.5s;
 }
 
-button:hover {
+.content .row-buttons button:hover {
   background-color: var(--hover-color);
 }
 
-a {
+.content .row-buttons a {
   margin-left: 15px;
   color: var(--second-color);
   text-decoration: none;
   cursor: pointer;
 }
 
-a:hover {
+.content .row-buttons a:hover {
   text-decoration: underline;
 }
 
-.employer {
+.content .employer {
   margin-top: 20px;
 }
 
-a {
+.content .employer a {
   margin-left: 15px;
   color: var(--second-color);
   text-decoration: none;
   cursor: pointer;
-  padding: 20px;
 }
 
-a:hover {
+.content .employer a:hover {
   text-decoration: underline;
+}
+
+
+@media screen and (max-width: 970px) {
+  .content {
+    padding: 25px 0;
+  }
+
+  .row {
+    flex-direction: column;
+  }
 }

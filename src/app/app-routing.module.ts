@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'employer/home', loadChildren: () => import('./pages/my-jobs/my-jobs.module').then(m => m.MyJobsModule), canActivate: [AuthGuard] },
   { path: 'employer/new-job', loadChildren: () => import('./pages/new-job/new-job.module').then(m => m.NewJobModule), canActivate: [AuthGuard] },
   { path: 'employer/register', loadChildren: () => import('./pages/register-employer/register-employer.module').then(m => m.RegisterEmployerModule), canActivate: [LoggedInGuard] },
+  { path: 'seeker/my-applications', loadChildren: () => import('./pages/my-applications/my-applications.module').then(m => m.MyApplicationsModule) },
+  { path: 'employer/applications', loadChildren: () => import('./pages/incoming-applications/incoming-applications.module').then(m => m.IncomingApplicationsModule) },
 ];
 
 @NgModule({

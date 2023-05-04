@@ -2,14 +2,14 @@
 <div class="content">
   <div class="cards">
     <h1>Állásajánlatok</h1>
-    <mat-card>
+    <mat-card *ngFor="let item of hirdetesek">
       <mat-card-title style="padding: 10px;">
-        CÍM
+        {{item["name"]}}
       </mat-card-title>
       <mat-card-content>
-        <mat-icon fontIcon="domain" style="font-size: 20pt;"></mat-icon> Cég neve<br>
-        <mat-icon fontIcon="location_on" style="font-size: 20pt;"></mat-icon> Cég székhelye
-        <p>Nagyon jó állást biztosítunk, gyere ide</p>
+        <mat-icon fontIcon="domain" style="font-size: 20pt;"></mat-icon> {{item["employerName"]}}<br>
+        <mat-icon fontIcon="location_on" style="font-size: 20pt;"></mat-icon> {{item["employerAddress"]}}
+        <p>{{item["description"]}}</p>
         <button color="primary" mat-raised-button routerLink="/allas/VALAMI">Megtekintés</button>
       </mat-card-content>
     </mat-card>

@@ -8,10 +8,10 @@
         <div class="row">
           <mat-form-field style="width: 100%;">
             <mat-label>Teljes név</mat-label>
-            <input type="text" matInput>
+            <input type="text" matInput #ujnev>
           </mat-form-field>
         </div>
-        <button matTooltip="Név felülírása" color="primary" mat-raised-button (click)="openSnackBar('Név felülírva', 'Bezárás')">Mentés</button>
+        <button matTooltip="Név felülírása" color="primary" mat-raised-button (click)="updateName(ujnev.value)">Mentés</button>
       </div>
     </div>
   </div>
@@ -29,14 +29,14 @@
               <div class="icon">
                 <i class="fa-solid fa-briefcase"></i>
               </div>
-              <input matInput type="text" list="munkakorok" #munkakor>
+              <input type="text" list="munkakorok" #munkakor>
             </div>
             <div class="input-box">
               <label>évek</label>
               <div class="icon">
                 <i class="fa-solid fa-clock"></i>
               </div>
-              <input matInput type="text" #ido>
+              <input type="text" #ido>
             </div>
             <div class="row">
 

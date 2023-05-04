@@ -13,7 +13,11 @@ export class LoggedInGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (this.authService.authLevel > 0) {
+      let authLevel = localStorage.getItem('authLevel')
+      if (!authLevel)
+        return false;
+
+      if (parseInt(authLevel) > 0) {
         alert('Már be vagy jelentkezve.');
         this.router.navigate(['home']);
       }
