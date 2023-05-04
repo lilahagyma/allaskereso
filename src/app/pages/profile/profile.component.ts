@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,25 +12,9 @@ export class ProfileComponent {
   showNewEducation: boolean = false;
   showNewLanguageSkills: boolean = false;
 
-  tapasztalatok = []
+  constructor(private _snackBar: MatSnackBar) {}
 
-  modifySeeker(nev: string, telefonszam: string, iranyitoszam: string, kozterulet: string, hazszam: string, emelet: string, ajto: string) {
-
-  }
-
-  deleteTapasztalat(tapasztalat: Array<any>) {
-
-  }
-
-  addTapasztalat(munkakor: string, munkaado: string, mettol: string, meddig: string) {
-
-  }
-
-  addVegzettseg(nev: string, tipus: string, kezdete: string, vege: string) {
-
-  }
-
-  addNyelvismeret(nyelv: string, szint: string) {
-
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

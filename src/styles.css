@@ -11,14 +11,6 @@
   box-sizing: border-box;
 }
 
-button {
-  border-radius: 100px;
-}
-
-input {
-  border-radius: 100px;
-}
-
 html {
   overflow-x: hidden;
 }

@@ -1,1 +1,18 @@
-<p>login works!</p>
+<div class="content">
+  <h1>Bejelentkezés</h1>
+  <form>
+    <div class="input-box">
+      <label>e-mail cím</label>
+      <input type="text" #email>
+    </div>
+    <div class="input-box">
+      <label>jelszó</label>
+      <input type="password" #password>
+    </div>
+    <button>Bejelentkezés</button>
+  </form>
+  <div class="row">
+    <a routerLink="/seeker/register">Regisztráció munkavállalóként</a>
+    <a routerLink="/employer/register">Regisztráció munkaadóként</a>
+  </div>
+</div>

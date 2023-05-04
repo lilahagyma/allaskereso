@@ -6,6 +6,9 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'
+import { provideStorage, getStorage } from '@angular/fire/storage'
+import { getAuth, provideAuth } from '@angular/fire/auth'
 
 @NgModule({
   declarations: [
@@ -15,8 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    BrowserAnimationsModule
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,10 +12,11 @@ export class AuthService {
   currentUser: firebase.User | null = null;
   private authStatusSub = new BehaviorSubject(this.currentUser);
   currentAuthStatus = this.authStatusSub.asObservable();
-  authLevel = 1;
+  authLevel = 0;
 
   constructor(protected auth: AngularFireAuth, protected data: DataService, protected router: Router) {
     this.authStatusListener();
+    data.getAllOffers()
   }
 
   authStatusListener(){
@@ -27,7 +28,6 @@ export class AuthService {
       else{
         this.currentUser = null
         this.authStatusSub.next(null);
-        //this.authLevel = 0;
       }
     })
   }
@@ -44,7 +44,6 @@ export class AuthService {
       user = await this.auth.createUserWithEmailAndPassword(email, password).catch((error) => {
         alert(error.message);
       });
-      this.auth.signOut();
     }
     catch { }
     return user;

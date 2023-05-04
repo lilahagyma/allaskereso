@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { NavbarComponent } from 'src/app/partials/navbar/navbar.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button'
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -13,7 +17,11 @@ import { NavbarComponent } from 'src/app/partials/navbar/navbar.component';
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    NavbarComponent
+    NavbarComponent,
+    MatInputModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ]
 })
 export class ProfileModule { }

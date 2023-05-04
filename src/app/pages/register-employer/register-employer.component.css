@@ -35,17 +35,16 @@
   display: flex;
 }
 
-.content fieldset {
+.content form {
   border: none;
 }
 
-.content fieldset input[type="text"],
-.content fieldset input[type="password"],
-.content fieldset input[type="number"] {
+.content form input[type="text"],
+.content form input[type="password"],
+.content form input[type="number"] {
   padding: 8px 15px;
   margin: 8px 0;
   width: 100%;
-  display: inline-block;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -56,11 +55,14 @@
   margin-top: 25px;
 }
 
-.content .row-buttons button {
+form {
+  justify-content: center;
+}
+
+button {
   padding: 10px 25px;
+  width: 100%;
   margin-top: 10px;
-  display: inline-block;
-  position: relative;
   background-color: var(--second-color);
   color: #fff;
   font-size: 16px;

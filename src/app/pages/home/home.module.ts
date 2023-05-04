@@ -5,6 +5,8 @@ import { HomeComponent } from './home.component';
 import { NavbarComponent } from 'src/app/partials/navbar/navbar.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button'
     HomeRoutingModule,
     NavbarComponent,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class HomeModule { }

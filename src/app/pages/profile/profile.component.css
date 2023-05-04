@@ -61,22 +61,6 @@
   outline: none;
 }
 
-.content .profile-data .personal .form button {
-  padding: 10px 25px;
-  margin-top: 10px;
-  display: inline-block;
-  position: relative;
-  background-color: var(--second-color);
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  transition: 0.5s;
-}
-
 .content .profile-data .personal .form button:hover {
   background-color: var(--hover-color);
 }
@@ -200,13 +184,8 @@
   background-color: #fff;
   border-color: #ccc;
   border: 1px solid #ccc;
-  border-radius: 100px;
   outline: none;
   appearance: none;
-}
-
-option {
-  border-radius: 100px;
 }
 
 .content .cv-data .cv #popup .popup-content .form .input-box input::-webkit-inner-spin-button,

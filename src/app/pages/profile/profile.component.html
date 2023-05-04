@@ -3,45 +3,15 @@
   <div class="profile-data">
     <h1>személyes adatok, önéletrajz</h1>
     <div class="personal">
-      <h2>személyes adatok</h2>
+      <h2>Név változtatása</h2>
       <div class="form">
         <div class="row">
-          <div class="input-box" style="margin-right: 25px;">
-            <label>teljes név</label>
-            <input type="text" #nev>
-          </div>
+          <mat-form-field style="width: 100%;">
+            <mat-label>Teljes név</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
         </div>
-        <div class="input-box">
-          <label>telefonszám</label>
-          <input type="text" #telefonszam>
-        </div>
-        <div class="row">
-          <div class="input-box" style="margin-right: 25px;">
-            <label>irányítószám</label>
-            <input type="text" #iranyitoszam>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-box" style="margin-right: 25px;">
-            <label>közterület</label>
-            <input type="text" #kozterulet>
-          </div>
-          <div class="input-box">
-            <label>házszám</label>
-            <input type="text" #hazszam>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-box" style="margin-right: 25px;">
-            <label>emelet</label>
-            <input type="text" #emelet>
-          </div>
-          <div class="input-box">
-            <label>ajtó</label>
-            <input type="text" #ajto>
-          </div>
-        </div>
-        <button (click)="modifySeeker(nev.value, telefonszam.value, iranyitoszam.value, kozterulet.value, hazszam.value, emelet.value, ajto.value)">Mentés</button>
+        <button matTooltip="Név felülírása" color="primary" mat-raised-button (click)="openSnackBar('Név felülírva', 'Bezárás')">Mentés</button>
       </div>
     </div>
   </div>
@@ -59,35 +29,19 @@
               <div class="icon">
                 <i class="fa-solid fa-briefcase"></i>
               </div>
-              <input type="text" list="munkakorok" #munkakor>
+              <input matInput type="text" list="munkakorok" #munkakor>
             </div>
             <div class="input-box">
-              <label>munkaadó cég neve</label>
+              <label>évek</label>
               <div class="icon">
-                <i class="fa-regular fa-building"></i>
+                <i class="fa-solid fa-clock"></i>
               </div>
-              <input type="text" #munkaado>
+              <input matInput type="text" #ido>
             </div>
             <div class="row">
-              <div class="input-box">
-                <label>mettől</label>
-                <div class="icon">
-                  <i class="fa-regular fa-calendar-days"></i>
-                </div>
-                <input type="date" #mettol>
-              </div>
-              <div class="hyphen">
-                  -
-              </div>
-              <div class="input-box">
-                <label>meddig</label>
-                <div class="icon">
-                  <i class="fa-regular fa-calendar-days"></i>
-                </div>
-                <input type="date" #meddig>
-              </div>
+
             </div>
-            <button (click)="addTapasztalat(munkakor.value, munkaado.value, mettol.value, meddig.value)">Mentés</button>
+            <button>Mentés</button>
           </div>
         </div>
       </div>
@@ -134,28 +88,9 @@
               <div class="icon">
                 <i class="fa-solid fa-signal"></i>
               </div>
-              <input type="text" #nev>
+              <input matInput type="text" #nev>
             </div>
-            <div class="row">
-              <div class="input-box">
-                <label>kezdete</label>
-                <div class="icon">
-                  <i class="fa-regular fa-calendar-days"></i>
-                </div>
-                <input type="date" #kezdete>
-              </div>
-              <div class="hyphen">
-                  -
-              </div>
-              <div class="input-box">
-                <label>vége</label>
-                <div class="icon">
-                  <i class="fa-regular fa-calendar-days"></i>
-                </div>
-                <input type="date" #vege>
-              </div>
-            </div>
-            <button (click)="addVegzettseg(nev.value, tipus.value, kezdete.value, vege.value)">Mentés</button>
+            <button>Mentés</button>
           </div>
         </div>
       </div>
@@ -165,104 +100,6 @@
           <p>1</p>
           <div class="date">
             2
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cv">
-      <h2>Nyelvismeret</h2>
-      <button class="add-item" (click)="this.showNewLanguageSkills = true"><i class="fa-solid fa-circle-plus"></i></button>
-      <div id="popup" *ngIf="showNewLanguageSkills">
-        <div class="popup-content">
-          <div class="close" (click)="showNewLanguageSkills = false;">&#x2715;</div>
-          <h2>nyelvismeret</h2>
-          <div class="form">
-            <div class="input-box">
-              <label>nyelv</label>
-              <div class="icon">
-                <i class="fa-solid fa-globe"></i>
-              </div>
-              <select #nyelv>
-                <option selected>Kérem válasszon</option>
-                <option>Afrikai</option>
-                <option>Albán</option>
-                <option>Angol</option>
-                <option>Arab</option>
-                <option>Bolgár</option>
-                <option>Bosnyák</option>
-                <option>Cseh</option>
-                <option>Dán</option>
-                <option>Észt</option>
-                <option>Finn</option>
-                <option>Flamand</option>
-                <option>Francia</option>
-                <option>Görög</option>
-                <option>Grúz</option>
-                <option>Héber</option>
-                <option>Hindi</option>
-                <option>Holland</option>
-                <option>Horvát</option>
-                <option>Ír</option>
-                <option>Japán</option>
-                <option>Katalán</option>
-                <option>Kínai</option>
-                <option>Koreai</option>
-                <option>Latin</option>
-                <option>Lengyel</option>
-                <option>Lett</option>
-                <option>Litván</option>
-                <option>Macedón</option>
-                <option>Magyar</option>
-                <option>Máltai</option>
-                <option>Mongol</option>
-                <option>Német</option>
-                <option>Norvég</option>
-                <option>Olasz</option>
-                <option>Orosz</option>
-                <option>Örmény</option>
-                <option>Perzsa</option>
-                <option>Portugál</option>
-                <option>Rétoromán</option>
-                <option>Roma</option>
-                <option>Román</option>
-                <option>Skót</option>
-                <option>Spanyol</option>
-                <option>Svéd</option>
-                <option>Szerb</option>
-                <option>Szlovák</option>
-                <option>Szlovén</option>
-                <option>Thai</option>
-                <option>Tibeti</option>
-                <option>Török</option>
-                <option>Ukrán</option>
-                <option>Üzbég</option>
-                <option>Vietnámi</option>
-             </select>
-            </div>
-            <div class="input-box">
-              <label>szint</label>
-              <div class="icon">
-                <i class="fa-solid fa-signal"></i>
-              </div>
-              <select #szint>
-                <option selected>Kérem válasszon</option>
-                <option>A1</option>
-                <option>A2</option>
-                <option>B1</option>
-                <option>B2</option>
-                <option>C1</option>
-                <option>C2</option>
-              </select>
-            </div>
-            <button (click)="addNyelvismeret(nyelv.value, szint.value)">Mentés</button>
-          </div>
-        </div>
-      </div>
-      <div class="language-skills">
-        <div class="language-skill">
-          <h2>1</h2>
-          <div class="level">
-           2
           </div>
         </div>
       </div>

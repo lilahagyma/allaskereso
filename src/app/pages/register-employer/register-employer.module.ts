@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterEmployerRoutingModule } from './register-employer-routing.module';
 import { RegisterEmployerComponent } from './register-employer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { RegisterEmployerComponent } from './register-employer.component';
   ],
   imports: [
     CommonModule,
-    RegisterEmployerRoutingModule
+    RegisterEmployerRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class RegisterEmployerModule { }
