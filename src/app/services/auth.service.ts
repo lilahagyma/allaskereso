@@ -14,6 +14,7 @@ export class AuthService {
   private authStatusSub = new BehaviorSubject(this.currentUser);
   currentAuthStatus = this.authStatusSub.asObservable();
   _authLevel: number = 0;
+  afterAuth: Array<() => void> = []
 
   public set authLevel(level: number) {
     this._authLevel = level;
@@ -29,7 +30,6 @@ export class AuthService {
   }
 
   constructor(protected auth: AngularFireAuth, protected router: Router, protected db: AngularFirestore) {
-    console.log("Konstruktor: " + this.authLevel)
     this.authStatusListener();
   }
 
@@ -40,6 +40,9 @@ export class AuthService {
         this.currentUser = credential
         console.log("Logged in")
         this.refreshAuthLevel()
+        this.afterAuth.forEach(element => {
+          element()
+        });
       }
       else{
         this.currentUser = null
@@ -60,7 +63,6 @@ export class AuthService {
   }
 
   async refreshAuthLevel() {
-    console.log("Refresh eleje: " + this.authLevel)
     let seekerData = await this.db.collection("seeker").doc(this.currentUser?.uid).ref.get();
     let employerData = await this.db.collection("employer").doc(this.currentUser?.uid).ref.get();
     if (seekerData.data()) {
@@ -71,8 +73,6 @@ export class AuthService {
       this.userData = employerData.data()
       this.authLevel = 2;
     }
-    console.log("Refresh vége: " + this.authLevel)
-    console.log(this.userData)
   }
 
   async register(email: string, password: string) {

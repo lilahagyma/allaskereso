@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Qualification } from 'src/app/models/Qualification';
+import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -13,7 +16,27 @@ export class ProfileComponent {
   showNewEducation: boolean = false;
   showNewLanguageSkills: boolean = false;
 
-  constructor(private _snackBar: MatSnackBar, protected data: DataService) {}
+  qualificationForm = new FormGroup({
+    type: new FormControl(''),
+    name: new FormControl('')
+  })
+
+  qualifications: Array<Qualification> = []
+
+  constructor(private _snackBar: MatSnackBar, protected data: DataService, protected auth: AuthService) {
+    setTimeout(() => {
+      data.getQualifications(res => this.qualifications = res)
+    }, 1000);
+  }
+
+  onSubmitQualification() {
+    let values = this.qualificationForm.value
+    let uid = this.auth.currentUser?.uid
+    if (!values.type || !values.name || !uid) {
+      return;
+    }
+    this.data.addQualification(new Qualification(values.type, values.name, uid))
+  }
 
   async updateName(newName: string) {
     await this.data.updateName(newName)

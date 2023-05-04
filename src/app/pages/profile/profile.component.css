@@ -31,27 +31,27 @@
   text-transform: uppercase;
 }
 
-.content .profile-data .personal .form .row {
+.content .profile-data .personal form .row {
   display: flex;
   width: 100%;
 }
 
-.content .profile-data .personal .form .input-box {
+.content .profile-data .personal form .input-box {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.content .profile-data .personal .form .input-box label {
+.content .profile-data .personal form .input-box label {
     color: #888888;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.content .profile-data .personal .form .input-box input,
-.content .profile-data .personal .form .input-box select {
+.content .profile-data .personal form .input-box input,
+.content .profile-data .personal form .input-box select {
   padding: 8px 15px;
   width: 100%;
   display: inline-block;
@@ -61,7 +61,7 @@
   outline: none;
 }
 
-.content .profile-data .personal .form button:hover {
+.content .profile-data .personal form button:hover {
   background-color: var(--hover-color);
 }
 
@@ -142,17 +142,17 @@
   text-transform: capitalize;
 }
 
-.content .cv-data .cv #popup .popup-content .form .row {
+.content .cv-data .cv #popup .popup-content form .row {
   display: flex;
   width: 100%;
 }
 
-.content .cv-data .cv #popup .popup-content .form .row .hyphen {
+.content .cv-data .cv #popup .popup-content form .row .hyphen {
   margin: 0 10px;
   margin-top: 25px
 }
 
-.content .cv-data .cv #popup .popup-content .form .input-box {
+.content .cv-data .cv #popup .popup-content form .input-box {
   margin-bottom: 20px;
   position: relative;
   display: flex;
@@ -160,14 +160,14 @@
   width: 100%;
 }
 
-.content .cv-data .cv #popup .popup-content .form .input-box label {
+.content .cv-data .cv #popup .popup-content form .input-box label {
     color: #888888;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.content .cv-data .cv #popup .popup-content .form .input-box .icon {
+.content .cv-data .cv #popup .popup-content form .input-box .icon {
   position: absolute;
   top: 24px;
   left: 10px;
@@ -175,8 +175,8 @@
   font-size: 16px;
 }
 
-.content .cv-data .cv #popup .popup-content .form .input-box input,
-.content .cv-data .cv #popup .popup-content .form .input-box select {
+.content .cv-data .cv #popup .popup-content form .input-box input,
+.content .cv-data .cv #popup .popup-content form .input-box select {
   padding: 8px 35px;
   width: 100%;
   display: inline-block;
@@ -188,13 +188,13 @@
   appearance: none;
 }
 
-.content .cv-data .cv #popup .popup-content .form .input-box input::-webkit-inner-spin-button,
-.content .cv-data .cv #popup .popup-content .form .input-box input::-webkit-calendar-picker-indicator {
+.content .cv-data .cv #popup .popup-content form .input-box input::-webkit-inner-spin-button,
+.content .cv-data .cv #popup .popup-content form .input-box input::-webkit-calendar-picker-indicator {
     display: none !important;
     -webkit-appearance: none;
 }
 
-.content .cv-data .cv #popup .popup-content .form button {
+.content .cv-data .cv #popup .popup-content form button {
   padding: 10px 25px;
   margin-top: 10px;
   display: inline-block;
@@ -210,7 +210,7 @@
   transition: 0.5s;
 }
 
-.content .cv-data .cv #popup .popup-content .form button:hover {
+.content .cv-data .cv #popup .popup-content form button:hover {
   background-color: var(--hover-color);
 }
 

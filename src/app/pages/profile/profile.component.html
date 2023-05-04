@@ -17,64 +17,25 @@
   </div>
   <div class="cv-data">
     <div class="cv">
-      <h2>Tapasztalat</h2>
-      <button class="add-item" (click)="this.showNewExperience = true"><i class="fa-solid fa-circle-plus"></i></button>
-      <div id="popup" *ngIf="showNewExperience">
-        <div class="popup-content">
-          <div class="close" (click)="showNewExperience = false;">&#x2715;</div>
-          <h2>tapasztalat</h2>
-          <div class="form">
-            <div class="input-box">
-              <label>munkakör megnevezése</label>
-              <div class="icon">
-                <i class="fa-solid fa-briefcase"></i>
-              </div>
-              <input type="text" list="munkakorok" #munkakor>
-            </div>
-            <div class="input-box">
-              <label>évek</label>
-              <div class="icon">
-                <i class="fa-solid fa-clock"></i>
-              </div>
-              <input type="text" #ido>
-            </div>
-            <div class="row">
-
-            </div>
-            <button>Mentés</button>
-          </div>
-        </div>
-      </div>
-      <div class="experiences">
-        <div class="experience" *ngFor="let item of []">
-          <h2><i class="fa-solid fa-circle"></i>{{item[0]}}</h2>
-          <p>{{item[1]}}</p>
-          <div class="date">
-            {{item[2]}} - {{item[3]}}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cv">
       <h2>Végzettség</h2>
       <button class="add-item" (click)="this.showNewEducation = true"><i class="fa-solid fa-circle-plus"></i></button>
       <div id="popup" *ngIf="showNewEducation">
         <div class="popup-content">
           <div class="close" (click)="showNewEducation = false;">&#x2715;</div>
           <h2>képzettség</h2>
-          <div class="form">
+          <form [formGroup]="qualificationForm" (ngSubmit)="onSubmitQualification()">
             <div class="input-box">
               <label>végzettség típusa</label>
               <div class="icon">
                 <i class="fa-solid fa-landmark"></i>
               </div>
-              <select #tipus>
-                <option selected>Végzettség típusa</option>
+              <select formControlName="type">
+                <option>Végzettség típusa</option>
                 <option>Általános iskola</option>
                 <option>Szakiskola / szakmunkás képző</option>
                 <option>Középiskola</option>
-                <option>Főiskola</option>
-                <option>Egyetem</option>
+                <option>Főiskolai diploma</option>
+                <option>Egyetemi diploma</option>
                 <option>Állami rendszerű egyéb képzés</option>
                 <option>Állami rendszerű, nem diplomás szakképzés</option>
                 <option>Coaching</option>
@@ -88,19 +49,16 @@
               <div class="icon">
                 <i class="fa-solid fa-signal"></i>
               </div>
-              <input matInput type="text" #nev>
+              <input matInput type="text" formControlName="name">
             </div>
-            <button>Mentés</button>
-          </div>
+            <button type="submit">Mentés</button>
+          </form>
         </div>
       </div>
       <div class="educations">
-        <div class="education">
-          <h2><i class="fa-solid fa-circle"></i>0</h2>
-          <p>1</p>
-          <div class="date">
-            2
-          </div>
+        <div class="education" *ngFor="let item of qualifications">
+          <h2><i class="fa-solid fa-circle"></i>{{item.name}} <i class="fa fa-trash" style="color: red; margin-left: 5px; font-size: 10pt; cursor: pointer;" (click)="data.deleteQualification(item)"></i></h2>
+          <p>{{item.type}}</p>
         </div>
       </div>
     </div>

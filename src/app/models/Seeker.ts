@@ -6,11 +6,4 @@ export class Seeker {
     this.name = name;
     this.email = email;
   }
-
-  toObject () {
-    return {
-      "name": this.name,
-      "email": this.email
-    }
-  }
 }

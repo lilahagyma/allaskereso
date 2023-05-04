@@ -4,6 +4,8 @@ import { JobOffer } from '../models/JobOffer';
 import { Employer } from '../models/Employer';
 import { Seeker } from '../models/Seeker';
 import { AuthService } from './auth.service';
+import { JobAppplication } from '../models/JobApplication';
+import { Qualification } from '../models/Qualification';
 
 @Injectable({
   providedIn: 'root'
@@ -80,7 +82,82 @@ export class DataService {
     return true;
   }
 
-  async addExperience(uid: string, userdata: Seeker) {
+  async getQualifications(callback: (res: Array<Qualification>) => void) {
+    console.log("get eleje")
+    let uid = this.auth.currentUser?.uid
+    if (!uid) {
+      console.log("null")
+      return;
+    }
+    console.log("get közepe")
+    let qualifications: Array<Qualification> = [];
+    (await this.db.collection<Qualification>('qualification').ref.where('uid', '==', uid).get()).forEach(
+      doc => {
+        qualifications.push(doc.data())
+      }
+    )
+    console.log("get vége")
+    callback(qualifications)
+  }
 
+  async getMyApplications(callback: (res: Array<Qualification>) => void) {
+    let uid = this.auth.currentUser?.uid
+    if (!uid)
+      return;
+
+    let qualifications: Array<Qualification> = [];
+    (await this.db.collection<Qualification>('qualification').ref.where('uid', '==', uid).get()).forEach(
+      doc => {
+        qualifications.push(doc.data())
+      }
+    )
+    callback(qualifications)
+  }
+
+  async addApplication(experience: JobAppplication) {
+    const {...object} = experience
+    await this.db.collection("application").ref.add(object).catch(error => {
+      alert(error.message)
+      return false;
+    })
+    return true;
+  }
+
+  async addQualification(qualification: Qualification) {
+    const {...object} = qualification
+    await this.db.collection("qualification").ref.add(object).catch(error => {
+      alert(error.message)
+      return false;
+    })
+    alert("Sikeresen hozzáadva")
+    location.reload()
+    return true;
+  }
+
+  async deleteApplication(application: JobAppplication) {
+    await (await this.db.collection("application").ref.where("seekerId", '==', application.seekerId).where('jobId', '==', application.jobId).get()).forEach(doc => {
+      doc.ref.delete()
+      .catch(error => {
+        alert(error.message)
+        return false;
+      })
+    })
+    return true;
+  }
+
+  async deleteQualification(qualification: Qualification) {
+    console.log(qualification)
+    await (await this.db.collection("qualification").ref.where("name", '==', qualification.name).where('uid', '==', qualification.uid).get()).forEach(doc => {
+      doc.ref.delete()
+      .catch(error => {
+        alert(error.message)
+        return false;
+      })
+    })
+    alert("Sikeresen törölve")
+    setTimeout(() => {
+      location.reload()
+    }, 1000);
+    return true;
   }
 }
