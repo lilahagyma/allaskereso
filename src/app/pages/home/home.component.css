@@ -1,0 +1,156 @@
+.search {
+  display: flex;
+}
+
+.search input[type="text"] {
+  padding: 8px 15px;
+  margin: 8px 0;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.content {
+  padding: 10px 200px 25px 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content .cards {
+  padding: 25px 0;
+  width: 75%;
+}
+
+.content .cards h1 {
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+mat-card-content p {
+  margin: 10px 5px;
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+mat-card-title {
+  width: fit-content;
+  color: var(--main-color);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.content .cards .card .date {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: grey;
+  opacity: 0.9;
+}
+
+.data {
+  margin: 8px 0;
+}
+
+.data .title {
+  margin-bottom: 3px;
+}
+
+
+.content .filter {
+  padding: 20px;
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 25%;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.content .filter h2 {
+  margin-bottom: 16px;
+  color: var(--main-color);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.content .filter ul {
+  list-style: none;
+}
+
+.content .filter ul li {
+  margin-bottom: 5px;
+  color: grey;
+  font-size: 15px;
+}
+
+span:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1350px) {
+  .content {
+    padding: 10px 100px 25px 100px;
+  }
+
+  .search {
+    left: 100px;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .content {
+    padding: 10px 25px 25px 25px;
+  }
+
+  .search {
+    left: 25px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .content .cards,
+  .content .filter {
+    width: 100%;
+  }
+
+  .content .filter {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .search {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 10px 10px 25px 10px;
+  }
+
+  .content .cards {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .content .cards h1 {
+    font-size: 26px;
+  }
+
+  .content .cards .card {
+    padding: 15px;
+  }
+
+  .content .cards .card .date {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}

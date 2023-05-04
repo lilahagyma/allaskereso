@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from 'src/app/partials/navbar/navbar.component';
 
 @Component({
   selector: 'app-new-job',

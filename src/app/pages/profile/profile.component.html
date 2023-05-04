@@ -1,0 +1,271 @@
+<app-navbar></app-navbar>
+<div class="content">
+  <div class="profile-data">
+    <h1>személyes adatok, önéletrajz</h1>
+    <div class="personal">
+      <h2>személyes adatok</h2>
+      <div class="form">
+        <div class="row">
+          <div class="input-box" style="margin-right: 25px;">
+            <label>teljes név</label>
+            <input type="text" #nev>
+          </div>
+        </div>
+        <div class="input-box">
+          <label>telefonszám</label>
+          <input type="text" #telefonszam>
+        </div>
+        <div class="row">
+          <div class="input-box" style="margin-right: 25px;">
+            <label>irányítószám</label>
+            <input type="text" #iranyitoszam>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-box" style="margin-right: 25px;">
+            <label>közterület</label>
+            <input type="text" #kozterulet>
+          </div>
+          <div class="input-box">
+            <label>házszám</label>
+            <input type="text" #hazszam>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-box" style="margin-right: 25px;">
+            <label>emelet</label>
+            <input type="text" #emelet>
+          </div>
+          <div class="input-box">
+            <label>ajtó</label>
+            <input type="text" #ajto>
+          </div>
+        </div>
+        <button (click)="modifySeeker(nev.value, telefonszam.value, iranyitoszam.value, kozterulet.value, hazszam.value, emelet.value, ajto.value)">Mentés</button>
+      </div>
+    </div>
+  </div>
+  <div class="cv-data">
+    <div class="cv">
+      <h2>Tapasztalat</h2>
+      <button class="add-item" (click)="this.showNewExperience = true"><i class="fa-solid fa-circle-plus"></i></button>
+      <div id="popup" *ngIf="showNewExperience">
+        <div class="popup-content">
+          <div class="close" (click)="showNewExperience = false;">&#x2715;</div>
+          <h2>tapasztalat</h2>
+          <div class="form">
+            <div class="input-box">
+              <label>munkakör megnevezése</label>
+              <div class="icon">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <input type="text" list="munkakorok" #munkakor>
+            </div>
+            <div class="input-box">
+              <label>munkaadó cég neve</label>
+              <div class="icon">
+                <i class="fa-regular fa-building"></i>
+              </div>
+              <input type="text" #munkaado>
+            </div>
+            <div class="row">
+              <div class="input-box">
+                <label>mettől</label>
+                <div class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <input type="date" #mettol>
+              </div>
+              <div class="hyphen">
+                  -
+              </div>
+              <div class="input-box">
+                <label>meddig</label>
+                <div class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <input type="date" #meddig>
+              </div>
+            </div>
+            <button (click)="addTapasztalat(munkakor.value, munkaado.value, mettol.value, meddig.value)">Mentés</button>
+          </div>
+        </div>
+      </div>
+      <div class="experiences">
+        <div class="experience" *ngFor="let item of []">
+          <h2><i class="fa-solid fa-circle"></i>{{item[0]}}</h2>
+          <p>{{item[1]}}</p>
+          <div class="date">
+            {{item[2]}} - {{item[3]}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cv">
+      <h2>Végzettség</h2>
+      <button class="add-item" (click)="this.showNewEducation = true"><i class="fa-solid fa-circle-plus"></i></button>
+      <div id="popup" *ngIf="showNewEducation">
+        <div class="popup-content">
+          <div class="close" (click)="showNewEducation = false;">&#x2715;</div>
+          <h2>képzettség</h2>
+          <div class="form">
+            <div class="input-box">
+              <label>végzettség típusa</label>
+              <div class="icon">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              <select #tipus>
+                <option selected>Végzettség típusa</option>
+                <option>Általános iskola</option>
+                <option>Szakiskola / szakmunkás képző</option>
+                <option>Középiskola</option>
+                <option>Főiskola</option>
+                <option>Egyetem</option>
+                <option>Állami rendszerű egyéb képzés</option>
+                <option>Állami rendszerű, nem diplomás szakképzés</option>
+                <option>Coaching</option>
+                <option>OKJ-rendszerű tanfolyam</option>
+                <option>Tanfolyam</option>
+                <option>Tréning</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <label>végzettség neve</label>
+              <div class="icon">
+                <i class="fa-solid fa-signal"></i>
+              </div>
+              <input type="text" #nev>
+            </div>
+            <div class="row">
+              <div class="input-box">
+                <label>kezdete</label>
+                <div class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <input type="date" #kezdete>
+              </div>
+              <div class="hyphen">
+                  -
+              </div>
+              <div class="input-box">
+                <label>vége</label>
+                <div class="icon">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </div>
+                <input type="date" #vege>
+              </div>
+            </div>
+            <button (click)="addVegzettseg(nev.value, tipus.value, kezdete.value, vege.value)">Mentés</button>
+          </div>
+        </div>
+      </div>
+      <div class="educations">
+        <div class="education">
+          <h2><i class="fa-solid fa-circle"></i>0</h2>
+          <p>1</p>
+          <div class="date">
+            2
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cv">
+      <h2>Nyelvismeret</h2>
+      <button class="add-item" (click)="this.showNewLanguageSkills = true"><i class="fa-solid fa-circle-plus"></i></button>
+      <div id="popup" *ngIf="showNewLanguageSkills">
+        <div class="popup-content">
+          <div class="close" (click)="showNewLanguageSkills = false;">&#x2715;</div>
+          <h2>nyelvismeret</h2>
+          <div class="form">
+            <div class="input-box">
+              <label>nyelv</label>
+              <div class="icon">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <select #nyelv>
+                <option selected>Kérem válasszon</option>
+                <option>Afrikai</option>
+                <option>Albán</option>
+                <option>Angol</option>
+                <option>Arab</option>
+                <option>Bolgár</option>
+                <option>Bosnyák</option>
+                <option>Cseh</option>
+                <option>Dán</option>
+                <option>Észt</option>
+                <option>Finn</option>
+                <option>Flamand</option>
+                <option>Francia</option>
+                <option>Görög</option>
+                <option>Grúz</option>
+                <option>Héber</option>
+                <option>Hindi</option>
+                <option>Holland</option>
+                <option>Horvát</option>
+                <option>Ír</option>
+                <option>Japán</option>
+                <option>Katalán</option>
+                <option>Kínai</option>
+                <option>Koreai</option>
+                <option>Latin</option>
+                <option>Lengyel</option>
+                <option>Lett</option>
+                <option>Litván</option>
+                <option>Macedón</option>
+                <option>Magyar</option>
+                <option>Máltai</option>
+                <option>Mongol</option>
+                <option>Német</option>
+                <option>Norvég</option>
+                <option>Olasz</option>
+                <option>Orosz</option>
+                <option>Örmény</option>
+                <option>Perzsa</option>
+                <option>Portugál</option>
+                <option>Rétoromán</option>
+                <option>Roma</option>
+                <option>Román</option>
+                <option>Skót</option>
+                <option>Spanyol</option>
+                <option>Svéd</option>
+                <option>Szerb</option>
+                <option>Szlovák</option>
+                <option>Szlovén</option>
+                <option>Thai</option>
+                <option>Tibeti</option>
+                <option>Török</option>
+                <option>Ukrán</option>
+                <option>Üzbég</option>
+                <option>Vietnámi</option>
+             </select>
+            </div>
+            <div class="input-box">
+              <label>szint</label>
+              <div class="icon">
+                <i class="fa-solid fa-signal"></i>
+              </div>
+              <select #szint>
+                <option selected>Kérem válasszon</option>
+                <option>A1</option>
+                <option>A2</option>
+                <option>B1</option>
+                <option>B2</option>
+                <option>C1</option>
+                <option>C2</option>
+              </select>
+            </div>
+            <button (click)="addNyelvismeret(nyelv.value, szint.value)">Mentés</button>
+          </div>
+        </div>
+      </div>
+      <div class="language-skills">
+        <div class="language-skill">
+          <h2>1</h2>
+          <div class="level">
+           2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

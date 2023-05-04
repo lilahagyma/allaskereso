@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="content">
+  <div class="cards">
+    <h1>Állások, munkák és állásajánlatok</h1>
+    <div class="search">
+      <input type="text" placeholder="Keresendő kulcsszó, állás neve" #allasNev>
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <mat-card>
+      <mat-card-title style="padding: 10px;">
+        CÍM
+      </mat-card-title>
+      <mat-card-content>
+        <i class="fa-solid fa-building"></i> Cég neve<br>
+        <i class="fa-solid fa-location-dot"></i> Cég székhelye
+        <p>Nagyon jó állást biztosítunk, gyere ide</p>
+        <button color="primary" mat-raised-button routerLink="/allas/VALAMI">Megtekintés</button>
+      </mat-card-content>
+    </mat-card>
+    <div class="card">
+      <h2>CÍM</h2>
+      <div class="data">
+        <div class="title">
+          <i class="fa-solid fa-building"></i> CÉG NEVE
+        </div>
+        <div class="address">
+          <i class="fa-solid fa-location-dot"></i> CÉG SZÉKHELYE
+        </div>
+      </div>
+      <p>LEÍRÁS</p>
+    </div>
+  </div>
+  <div class="filter">
+    <h2>Települések</h2>
+    <ul>
+      <li>
+        <span>
+          <!--<i class="fa-solid fa-circle-check"></i>-->
+          Baja
+        </span>
+         (8)
+      </li>
+    </ul>
+  </div>
+</div>

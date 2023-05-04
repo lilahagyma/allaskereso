@@ -1,0 +1,398 @@
+.content {
+  padding: 10px 200px 25px 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content .profile-data {
+  padding: 25px;
+  width: 65%;
+}
+
+.content .profile-data h1 {
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.content .profile-data .personal {
+  padding: 15px 25px;
+  margin-top: 25px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 5px 8px 22px -6px rgba(0, 0, 0, 0.08);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .profile-data .personal h2 {
+  margin-bottom: 16px;
+  color: var(--main-color);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.content .profile-data .personal .form .row {
+  display: flex;
+  width: 100%;
+}
+
+.content .profile-data .personal .form .input-box {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content .profile-data .personal .form .input-box label {
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content .profile-data .personal .form .input-box input,
+.content .profile-data .personal .form .input-box select {
+  padding: 8px 15px;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.content .profile-data .personal .form button {
+  padding: 10px 25px;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  background-color: var(--second-color);
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s;
+}
+
+.content .profile-data .personal .form button:hover {
+  background-color: var(--hover-color);
+}
+
+.content .cv-data {
+  width: 35%;
+}
+
+.content .cv-data .cv {
+  padding: 20px;
+  margin-top: 25px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 5px 8px 22px -6px rgba(0, 0, 0, 0.08);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .cv-data .cv:first-of-type {
+  margin-top: 98px;
+}
+
+.content .cv-data .cv h2 {
+  margin-bottom: 5px;
+  color: var(--main-color);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.content .cv-data .cv .add-item {
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: var(--second-color);
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s;
+}
+
+.content .cv-data .cv .add-item:hover {
+  color: var(--hover-color);
+}
+
+.content .cv-data .cv #popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  z-index: 1;
+}
+
+.content .cv-data .cv #popup .popup-content {
+  padding: 15px 20px;
+  margin: 25px auto;
+  position: relative;
+  width: 500px;
+  background-color: #ffffff;
+}
+
+.content .cv-data .cv #popup .popup-content .close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.content .cv-data .cv #popup .popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.content .cv-data .cv #popup .popup-content .form .row {
+  display: flex;
+  width: 100%;
+}
+
+.content .cv-data .cv #popup .popup-content .form .row .hyphen {
+  margin: 0 10px;
+  margin-top: 25px
+}
+
+.content .cv-data .cv #popup .popup-content .form .input-box {
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content .cv-data .cv #popup .popup-content .form .input-box label {
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content .cv-data .cv #popup .popup-content .form .input-box .icon {
+  position: absolute;
+  top: 24px;
+  left: 10px;
+  color: #888888;
+  font-size: 16px;
+}
+
+.content .cv-data .cv #popup .popup-content .form .input-box input,
+.content .cv-data .cv #popup .popup-content .form .input-box select {
+  padding: 8px 35px;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  outline: none;
+  appearance: none;
+}
+
+option {
+  border-radius: 100px;
+}
+
+.content .cv-data .cv #popup .popup-content .form .input-box input::-webkit-inner-spin-button,
+.content .cv-data .cv #popup .popup-content .form .input-box input::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
+.content .cv-data .cv #popup .popup-content .form button {
+  padding: 10px 25px;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  background-color: var(--second-color);
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s;
+}
+
+.content .cv-data .cv #popup .popup-content .form button:hover {
+  background-color: var(--hover-color);
+}
+
+.content .cv-data .cv .experiences .experience {
+  padding: 5px 0;
+  position: relative;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .cv-data .cv .experiences .experience:last-of-type {
+  border: none;
+}
+
+.content .cv-data .cv .experiences .experience h2 {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 15px;
+  text-transform: initial;
+}
+
+.content .cv-data .cv .experiences .experience h2 i {
+  margin-top: 3px;
+  margin-right: 10px;
+  color: #333;
+  font-size: 8px;
+}
+
+.content .cv-data .cv .experiences .experience p {
+  margin-left: 17px;
+  color: #888888;
+}
+
+.content .cv-data .cv .experiences .experience .date {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  color: #888888;
+  font-weight: 500;
+}
+
+.content .cv-data .cv .educations .education {
+  padding: 5px 0;
+  position: relative;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .cv-data .cv .educations .education:last-of-type {
+  border: none;
+}
+
+.content .cv-data .cv .educations .education h2 {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 15px;
+  text-transform: initial;
+}
+
+.content .cv-data .cv .educations .education h2 i {
+  margin-top: 3px;
+  margin-right: 10px;
+  color: #333;
+  font-size: 8px;
+}
+
+.content .cv-data .cv .educations .education p {
+  margin-left: 17px;
+  color: #888888;
+}
+
+.content .cv-data .cv .educations .education .date {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  color: #888888;
+  font-weight: 500;
+}
+
+.content .cv-data .cv .language-skills .language-skill {
+  padding: 5px 0;
+  position: relative;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .cv-data .cv .language-skills .language-skill:last-of-type {
+  border: none;
+}
+
+.content .cv-data .cv .language-skills .language-skill h2 {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 15px;
+  text-transform: initial;
+}
+
+.content .cv-data .cv .language-skills .language-skill .level {
+  color: #888888;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1350px) {
+  .content {
+    padding: 10px 100px 25px 100px;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .content {
+    padding: 10px 25px 25px 25px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .content .profile-data,
+  .content .cv-data .cv {
+    width: 100%;
+  }
+
+  .content .cv-data {
+    padding: 0 25px;
+    width: 100%;
+  }
+
+  .content .cv-data .cv:first-of-type {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 10px 10px 25px 10px;
+  }
+
+  .content .profile-data {
+    padding: 10px;
+  }
+
+  .content .cv-data {
+    padding: 10px;
+  }
+
+  .content .cv-data .cv #popup .popup-content {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .content .profile-data h1 {
+    font-size: 26px;
+  }
+
+  .content .profile-data .personal {
+    padding: 15px;
+  }
+}

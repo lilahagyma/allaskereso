@@ -1,0 +1,74 @@
+<div class="content">
+  <h1>Regisztráció - Munkaadó</h1>
+  <div class="row">
+    <fieldset>
+      <div class="row">
+        <div class="input-box" style="margin-right: 25px;">
+          <label>cég neve<span class="required">*</span></label>
+          <input type="text" placeholder="Minta Kft." #munkaado_nev>
+        </div>
+        <div class="input-box">
+          <label>kapcsolattartó e-mail címe<span class="required">*</span></label>
+          <input type="text" placeholder="kapcsolattarto@gmail.com" #munkaado_email>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-box" style="margin-right: 25px;">
+          <label>jelszó<span class="required">*</span></label>
+          <input type="password" #munkaado_jelszo>
+        </div>
+        <div class="input-box">
+          <label>jelszó megismétlése<span class="required">*</span></label>
+          <input type="password" #munkaado_jelszo2>
+        </div>
+      </div>
+      <div class="input-box">
+        <label>adószám<span class="required">*</span></label>
+        <input type="text" placeholder="12345678-1-12" #munkaado_adoszam>
+      </div>
+    </fieldset>
+  </div>
+  <fieldset>
+    <div class="row">
+      <div class="input-box" style="margin-right: 25px;" >
+        <label>székhely irányítószáma<span class="required">*</span></label>
+        <input type="number" placeholder="1234" #munkaado_iranyitoszam>
+      </div>
+      <div class="input-box" style="margin-right: 25px;" >
+        <label>település</label>
+        <input type="text" disabled>
+      </div>
+      <div class="input-box">
+        <label>megye</label>
+        <input type="text" disabled>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-box" style="margin-right: 25px;" >
+        <label>közterület<span class="required">*</span></label>
+        <input type="text" #munkaado_kozterulet>
+      </div>
+      <div class="input-box">
+        <label>házszám<span class="required">*</span></label>
+        <input type="text" #munkaado_hazszam>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-box" style="margin-right: 25px;">
+        <label>emelet</label>
+        <input type="text" #munkaado_emelet>
+      </div>
+      <div class="input-box">
+        <label>ajtó</label>
+        <input type="text" #munkaado_ajto>
+      </div>
+    </div>
+  </fieldset>
+  <div class="row-buttons">
+    <button>Regisztráció</button>
+    <a routerLink="/bejelentkezes">Bejelentkezés</a>
+  </div>
+  <div class="employer">
+    <a routerLink="/regisztracio">Regisztrálás munkavállalóként</a>
+  </div>
+</div>

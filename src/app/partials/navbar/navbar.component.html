@@ -1,0 +1,11 @@
+<nav>
+  <div class="menu">
+    <ul>
+      <li *ngIf="auth.authLevel > 0" routerLink="/home">Állások</li>
+      <li *ngIf="auth.authLevel == 1" routerLink="/seeker/profile">Profilom</li>
+      <li *ngIf="auth.authLevel == 2" routerLink="/employer/home">Hirdetéseim</li>
+      <li *ngIf="auth.authLevel == 2" routerLink="/employer/new-job">Új hirdetés</li>
+      <li (click)="auth.signOut()">Kijelentkezés</li>
+    </ul>
+  </div>
+</nav>

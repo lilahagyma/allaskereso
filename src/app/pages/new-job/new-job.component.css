@@ -1,0 +1,137 @@
+.content {
+  padding: 10px 200px 25px 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content .create-job {
+  padding: 25px;
+  width: 65%;
+}
+
+.content .create-job h1 {
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.content .create-job .job-data {
+  padding: 15px 25px;
+  margin-top: 25px;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 5px 8px 22px -6px rgba(0, 0, 0, 0.08);
+  border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+.content .create-job .job-data h2 {
+  margin-bottom: 16px;
+  color: var(--main-color);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.content .create-job .job-data .form .row {
+  display: flex;
+  width: 100%;
+}
+
+.content .create-job .job-data .form .input-box {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content .create-job .job-data .form .input-box label {
+    color: #888888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.content .create-job .job-data .form .input-box input,
+.content .create-job .job-data .form .input-box textarea {
+  padding: 8px 15px;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  resize: none;
+}
+
+.content .create-job .job-data .form .input-box input::-webkit-inner-spin-button,
+.content .create-job .job-data .form .input-box input::-webkit-calendar-picker-indicator {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
+.content .create-job .job-data .form .hyphen {
+  margin: 0 10px;
+  margin-top: 25px
+}
+
+.content .create-job .job-data .form button {
+  padding: 10px 25px;
+  margin-top: 10px;
+  display: inline-block;
+  position: relative;
+  background-color: var(--second-color);
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s;
+}
+
+.content .create-job .job-data .form button:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (max-width: 1350px) {
+  .content {
+    padding: 10px 100px 25px 100px;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .content {
+    padding: 10px 25px 25px 25px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .content .create-job {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 10px 10px 25px 10px;
+  }
+
+  .content .create-job {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .content .create-job h1 {
+    font-size: 26px;
+  }
+
+  .content .create-job .job-data {
+    padding: 15px;
+  }
+}

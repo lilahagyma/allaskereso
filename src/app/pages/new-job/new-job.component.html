@@ -1,1 +1,49 @@
-<p>new-job works!</p>
+<app-navbar></app-navbar>
+<div class="content">
+  <div class="create-job">
+    <h1>állás létrehozása</h1>
+    <div class="job-data">
+      <h2>adatok</h2>
+      <div class="form">
+        <div class="row">
+          <div class="input-box">
+            <label>munkakör megnevezése</label>
+            <input type="text" list="munkakorok" #allas>
+          </div>
+        </div>
+        <div class="input-box">
+          <label>leírás</label>
+          <textarea rows="5" #leiras></textarea>
+        </div>
+        <div class="row">
+          <div class="input-box">
+            <label>elvárások</label>
+            <input type="text" #elvarasok>
+          </div>
+        </div>
+        <div class="input-box">
+          <label>előnyök</label>
+          <input type="text" #elony>
+        </div>
+        <div class="input-box">
+          <label>munkarend</label>
+          <input type="text" #munkarend>
+        </div>
+        <div class="row">
+          <div class="input-box">
+            <label>minimum bér</label>
+            <input type="number" #minber>
+          </div>
+          <div class="hyphen">
+            -
+          </div>
+          <div class="input-box">
+            <label>maximum bér</label>
+            <input type="number" #maxber>
+          </div>
+        </div>
+        <button>Állás létrehozása</button>
+      </div>
+    </div>
+  </div>
+</div>
