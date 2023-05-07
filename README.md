@@ -1,10 +1,12 @@
 ## A projektről
 
+Hosting link: https://allaskereso-5bd68.web.app/
+
 A projekt egy végletekig leegyszerűsített álláskeresőt valósít meg. Igyekeztem amennyire lehet a hasznosságra is törekedni, de nyilvánvaló, hogy a pontszerzés volt az elsődleges szempont.
 
 ## Környezeti változók
 
-A környezeti változókat kiszedtem, mind üres string. Ha szükséged lenne rájuk akkor a coospace feladatnál megtalálod őket.
+Mivel publikus a repository, így a környezeti változókat szándékosan kiszedtem, mind üres string. Értelemszerűen a projekt nem működik rendesen nélkülük, így azokat mellékeltem coospacen.
 
 ## Minta userek
 
