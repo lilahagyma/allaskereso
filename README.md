@@ -15,7 +15,7 @@ Munkaadó: ceg@munka.hu
 
 Mindkét felhasználó jelszava 123456
 
-Ezeknek már vannak adatai, de természetesen te is létrehozhatos a saját felhasználóidat.
+Ezeknek már vannak adatai, de természetesen te is létrehozhatod a saját felhasználóidat.
 
 ## User content
 
