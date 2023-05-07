@@ -15,6 +15,8 @@ Munkaadó: ceg@munka.hu
 
 Mindkét felhasználó jelszava 123456
 
+Ezeknek már vannak adatai, de természetesen te is létrehozhatos a saját felhasználóidat.
+
 ## User content
 
 Arra kérnélek hogy ha bármit létrehozol az adatbázisban (pl. Hirdetést) az legyen nyomdafestéket tűrő, ugyanis mások is látják. A Mobil alkfejl. projektem is ezt az adatbázist használja, úgyhogy ott is látszódni fog az, amit létrehozol ezen az oldalon.
