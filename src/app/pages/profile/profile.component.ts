@@ -24,9 +24,7 @@ export class ProfileComponent {
   qualifications: Array<Qualification> = []
 
   constructor(private _snackBar: MatSnackBar, protected data: DataService, protected auth: AuthService) {
-    setTimeout(() => {
-      data.getQualifications(res => this.qualifications = res)
-    }, 1000);
+    data.getQualifications(res => this.qualifications = res)
   }
 
   onSubmitQualification() {

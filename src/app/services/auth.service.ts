@@ -14,7 +14,6 @@ export class AuthService {
   private authStatusSub = new BehaviorSubject(this.currentUser);
   currentAuthStatus = this.authStatusSub.asObservable();
   _authLevel: number = 0;
-  afterAuth: Array<() => void> = []
 
   public set authLevel(level: number) {
     this._authLevel = level;
@@ -40,9 +39,6 @@ export class AuthService {
         this.currentUser = credential
         console.log("Logged in")
         this.refreshAuthLevel()
-        this.afterAuth.forEach(element => {
-          element()
-        });
       }
       else{
         this.currentUser = null
@@ -54,10 +50,14 @@ export class AuthService {
   }
 
   async signIn(email: string, password: string) {
+    let error = false;
     await this.auth.signInWithEmailAndPassword(email, password).catch(() => {
+      error = true;
       alert("Hibás felhasználónév vagy jelszó!");
       return;
     });
+    if (error)
+      return;
     await this.refreshAuthLevel()
     this.router.navigate(["home"])
   }

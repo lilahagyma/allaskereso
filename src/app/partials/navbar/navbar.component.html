@@ -3,7 +3,7 @@
     <ul>
       <li *ngIf="auth._authLevel > 0" routerLink="/home">Állások</li>
       <li *ngIf="auth._authLevel == 1" routerLink="/seeker/profile">Profilom</li>
-      <li *ngIf="auth._authLevel == 2" routerLink="/employer/home">Hirdetéseim</li>
+      <li *ngIf="auth._authLevel == 2" routerLink="/employer/offers">Hirdetéseim</li>
       <li *ngIf="auth._authLevel == 2" routerLink="/employer/new-job">Új hirdetés</li>
       <li (click)="auth.signOut()">Kijelentkezés</li>
     </ul>

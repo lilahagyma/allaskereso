@@ -3,9 +3,9 @@ export class JobOffer {
   description: string
   employerId: string
 
-  constructor(name: string, descrtiption: string, employerId: string) {
+  constructor(name: string, description: string, employerId: string) {
     this.name = name
-    this.description = descrtiption
+    this.description = description
     this.employerId = employerId
   }
 }

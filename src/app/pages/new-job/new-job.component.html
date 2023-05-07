@@ -15,7 +15,7 @@
           <label>leírás</label>
           <textarea rows="5" #leiras></textarea>
         </div>
-        <button>Állás létrehozása</button>
+        <button (click)="onNewJobClicked(allas.value, leiras.value)">Állás létrehozása</button>
       </div>
     </div>
   </div>

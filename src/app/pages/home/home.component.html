@@ -2,15 +2,17 @@
 <div class="content">
   <div class="cards">
     <h1>Állásajánlatok</h1>
-    <mat-card *ngFor="let item of hirdetesek">
+    <mat-card *ngFor="let item of hirdetesek" style="margin: 20px;">
       <mat-card-title style="padding: 10px;">
         {{item["name"]}}
       </mat-card-title>
       <mat-card-content>
         <mat-icon fontIcon="domain" style="font-size: 20pt;"></mat-icon> {{item["employerName"]}}<br>
         <mat-icon fontIcon="location_on" style="font-size: 20pt;"></mat-icon> {{item["employerAddress"]}}
-        <p>{{item["description"]}}</p>
-        <button color="primary" mat-raised-button routerLink="/allas/VALAMI">Megtekintés</button>
+        <p style="margin: 20px 0px;">{{item["description"]}}</p>
+        <p *ngIf="auth._authLevel == 1 && jelentkezesek.includes(item['id'])">✓ Jelentkezve</p>
+        <button color="primary" mat-raised-button *ngIf="auth._authLevel == 1 && !jelentkezesek.includes(item['id'])" (click)="onApplyPressed(item['id'])">Jelentkezek</button>
+        <button color="warn" mat-raised-button *ngIf="auth._authLevel == 1 && jelentkezesek.includes(item['id'])" (click)="onDeapplyPressed(item['id'])">✘ Jelenkezés törlése</button>
       </mat-card-content>
     </mat-card>
   </div>

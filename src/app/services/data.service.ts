@@ -4,16 +4,30 @@ import { JobOffer } from '../models/JobOffer';
 import { Employer } from '../models/Employer';
 import { Seeker } from '../models/Seeker';
 import { AuthService } from './auth.service';
-import { JobAppplication } from '../models/JobApplication';
+import { JobAppplication as JobApplication } from '../models/JobApplication';
 import { Qualification } from '../models/Qualification';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  constructor(protected db: AngularFirestore, protected auth: AuthService) { }
 
-  constructor(protected db: AngularFirestore, protected auth: AuthService) {
-    this.getAllOffers(console.log)
+  async getMyOffers(callback: (value: Array<any>) => void) {
+    if (!this.auth.currentUser) {
+      setTimeout(() => {
+        this.getMyOffers(callback)
+      }, 100);
+      return;
+    }
+
+    let uid = this.auth.currentUser.uid
+    let offers:Array<JobOffer> = [];
+
+    (await this.db.collection<JobOffer>("offers").ref.where('employerId', '==', uid).get()).forEach(
+      result => offers.push(result.data())
+    )
+    callback(offers)
   }
 
   async getAllOffers(callback: (value: Array<any>) => void) {
@@ -28,11 +42,12 @@ export class DataService {
           'name': offerData.name,
           'description': offerData.description,
           'employerName': snapshot.data()?.name,
-          'employerAddress': snapshot.data()?.address
+          'employerAddress': snapshot.data()?.address,
+          'id': offer.id
         })
-        callback(allOffers)
       })
     })
+    callback(allOffers)
   }
 
   async updateName(name: string) {
@@ -83,40 +98,51 @@ export class DataService {
   }
 
   async getQualifications(callback: (res: Array<Qualification>) => void) {
-    console.log("get eleje")
     let uid = this.auth.currentUser?.uid
     if (!uid) {
-      console.log("null")
+      setTimeout(() => {
+        this.getQualifications(callback);
+      }, 200);
       return;
     }
-    console.log("get közepe")
+
     let qualifications: Array<Qualification> = [];
     (await this.db.collection<Qualification>('qualification').ref.where('uid', '==', uid).get()).forEach(
       doc => {
         qualifications.push(doc.data())
       }
     )
-    console.log("get vége")
     callback(qualifications)
   }
 
-  async getMyApplications(callback: (res: Array<Qualification>) => void) {
+  async getMyApplications(callback: (res: Array<string>) => void) {
     let uid = this.auth.currentUser?.uid
-    if (!uid)
+    if (!uid) {
+      setTimeout(() => {
+          this.getMyApplications(callback);
+      }, 100);
       return;
+    }
 
-    let qualifications: Array<Qualification> = [];
-    (await this.db.collection<Qualification>('qualification').ref.where('uid', '==', uid).get()).forEach(
-      doc => {
-        qualifications.push(doc.data())
-      }
+    let applications: Array<string> = [];
+    (await this.db.collection<JobApplication>('application').ref.where('seekerId', '==', uid).get()).forEach(
+      doc => applications.push(doc.data().jobId)
     )
-    callback(qualifications)
+    callback(applications)
   }
 
-  async addApplication(experience: JobAppplication) {
-    const {...object} = experience
+  async addApplication(application: JobApplication) {
+    const {...object} = application
     await this.db.collection("application").ref.add(object).catch(error => {
+      alert(error.message)
+      return false;
+    })
+    return true;
+  }
+
+  async addNewJob(application: JobOffer) {
+    const {...object} = application
+    await this.db.collection("offers").ref.add(object).catch(error => {
       alert(error.message)
       return false;
     })
@@ -134,8 +160,20 @@ export class DataService {
     return true;
   }
 
-  async deleteApplication(application: JobAppplication) {
+  async deleteApplication(application: JobApplication) {
     await (await this.db.collection("application").ref.where("seekerId", '==', application.seekerId).where('jobId', '==', application.jobId).get()).forEach(doc => {
+      doc.ref.delete()
+      .catch(error => {
+        alert(error.message)
+        return false;
+      })
+    })
+    return true;
+  }
+
+  async deleteJob(offer: JobOffer) {
+    await (await this.db.collection("offers").ref.where("name", '==', offer.name).where('employerId', '==', offer.employerId).get()).forEach(doc => {
+      console.log(doc.id)
       doc.ref.delete()
       .catch(error => {
         alert(error.message)
@@ -157,7 +195,7 @@ export class DataService {
     alert("Sikeresen törölve")
     setTimeout(() => {
       location.reload()
-    }, 1000);
+    }, 500);
     return true;
   }
 }

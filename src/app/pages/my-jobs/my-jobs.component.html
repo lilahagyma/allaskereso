@@ -1,1 +1,15 @@
-<p>my-jobs works!</p>
+<app-navbar></app-navbar>
+<div class="content">
+  <div class="cards">
+    <h1>Hirdetéseim</h1>
+    <mat-card *ngFor="let item of hirdetesek" style="margin: 20px;">
+      <mat-card-title style="padding: 10px;">
+        {{item.name}}
+      </mat-card-title>
+      <mat-card-content>
+        <p style="margin: 20px 0px;">{{item.description}}</p>
+        <button color="primary" mat-raised-button color="warn" (click)="onDeleteClicked(item)">Törlés</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
